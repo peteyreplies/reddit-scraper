@@ -37,17 +37,18 @@ for submission in top_submissions_generator:
 		}
 
 	#parse imgur ids to catch direct links 
-	if "http://i.imgur.com" in submission.url:
-		this_url = submission.url[19:]
-		imgur_id = this_url[:-4]
-		info['imgur'] = imgur_id
-	if "http://imgur.com/" in submission.url:
-		if "/a/" in submission.url:
-			imgur_id = submission.url[19:]
-			info['imgur'] = imgur_id
-		else:
-			imgur_id = submission.url[17:]
-			info['imgur'] = imgur_id
+	#removed 10/11/13 - may be easier to clean afterwards 
+	# if "http://i.imgur.com" in submission.url:
+	# 	this_url = submission.url[19:]
+	# 	imgur_id = this_url[:-4]
+	# 	info['imgur'] = imgur_id
+	# if "http://imgur.com/" in submission.url:
+	# 	if "/a/" in submission.url:
+	# 		imgur_id = submission.url[19:]
+	# 		info['imgur'] = imgur_id
+	# 	else:
+	# 		imgur_id = submission.url[17:]
+	# 		info['imgur'] = imgur_id
 
 	#write to database
 	top_redditdb.insert(info) 
